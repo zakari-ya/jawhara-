@@ -28,3 +28,15 @@ npm run preview
 ```
 
 The production output is generated in `dist/`.
+
+## Deploy on Vercel
+
+This project is configured for Vercel with `vercel.json`.
+
+- Framework preset: `Vite`
+- Install command: `npm install`
+- Build command: `npm run build`
+- Output directory: `dist`
+- Node.js: `20` or newer
+
+After deployment, check the live URL in both Arabic and French, then test the WhatsApp, Facebook, Google Maps, Privacy, and Terms links.
