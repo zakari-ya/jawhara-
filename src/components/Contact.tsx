@@ -11,10 +11,6 @@ interface ContactProps {
 export default function Contact({ language }: ContactProps) {
   const t = translations[language];
 
-  const handleOpenMap = () => {
-    window.open(BUSINESS.mapUrl, "_blank");
-  };
-
   return (
     <section id="contact" className="py-24 bg-[#050505] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -165,14 +161,15 @@ export default function Contact({ language }: ContactProps) {
 
               {/* CTA button to redirect to Maps */}
               <div className="relative z-10">
-                <button
-                  type="button"
-                  onClick={handleOpenMap}
+                <a
+                  href={BUSINESS.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full min-h-[44px] flex items-center justify-center gap-2.5 py-4 rounded-full bg-[#E6C47E] hover:bg-white text-black font-extrabold text-sm uppercase tracking-widest transition-all pointer-events-auto shadow-lg cursor-pointer"
                 >
                   <Send className="w-4 h-4 rotate-45" />
                   <span>{t.contact.findUsTitle}</span>
-                </button>
+                </a>
               </div>
             </div>
           </motion.div>

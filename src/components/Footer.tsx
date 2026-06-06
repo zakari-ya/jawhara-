@@ -112,9 +112,14 @@ export default function Footer({ language, onOpenLegal }: FooterProps) {
             <p className="text-xs sm:text-sm text-[#A19A93] font-sans font-light leading-relaxed">
               {BUSINESS.address[language]}
             </p>
-            <p className="text-xs sm:text-sm text-[#FAF7F2] font-bold leading-none select-all pt-1 font-mono tracking-wider">
+            <a
+              href={BUSINESS.mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-fit text-xs sm:text-sm text-[#FAF7F2] hover:text-[#E6C47E] font-bold leading-none pt-1 font-mono tracking-wider transition-colors"
+            >
               {BUSINESS.mapDisplay[language]}
-            </p>
+            </a>
             <div className="pt-4">
               <h4 className="mb-3 text-xs font-bold text-[#E6C47E] tracking-widest uppercase font-sans">
                 {t.footer.legal}

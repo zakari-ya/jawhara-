@@ -10,10 +10,6 @@ interface CtaSectionProps {
 export default function CtaSection({ language }: CtaSectionProps) {
   const t = translations[language];
 
-  const handleOpenMap = () => {
-    window.open(BUSINESS.mapUrl, "_blank");
-  };
-
   return (
     <section className="py-20 bg-[#030303] overflow-hidden relative text-center">
       <div className="absolute inset-0 bg-gradient-to-t from-[#040404] to-[#010101]" />
@@ -58,14 +54,15 @@ export default function CtaSection({ language }: CtaSectionProps) {
               <span>{t.ctaSection.ctaWhatsapp}</span>
             </a>
 
-            <button
-              type="button"
-              onClick={handleOpenMap}
+            <a
+              href={BUSINESS.mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex min-h-[44px] items-center justify-center gap-2 w-full py-4 rounded-full border border-gold-accent/25 hover:border-[#E6C47E] bg-white/5 hover:bg-white/10 text-[#E6C47E] font-extrabold text-xs tracking-widest uppercase transition-all duration-300 backdrop-blur-sm cursor-pointer"
             >
               <MapPin className="w-4 h-4 text-[#E6C47E]" />
               <span>{t.ctaSection.ctaContact}</span>
-            </button>
+            </a>
           </div>
         </motion.div>
       </div>
