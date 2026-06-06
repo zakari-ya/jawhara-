@@ -1,7 +1,7 @@
 import { Fragment, useState, useEffect, type MouseEvent } from "react";
 import { Menu, X, Phone, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { getWhatsappUrl } from "../data/business";
+import { getGeneralWhatsappUrl } from "../data/business";
 import { translations } from "../data/translations";
 import { scrollToSection } from "../utils/scroll";
 
@@ -117,7 +117,7 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
               </button>
 
               <a
-                href={getWhatsappUrl()}
+                href={getGeneralWhatsappUrl(language)}
                 target="_blank"
                 rel="noreferrer"
                 className="group flex min-h-[44px] items-center gap-2 bg-[#E6C47E] hover:bg-white text-[#000000] px-5 py-2 text-[11px] font-bold font-sans uppercase tracking-[0.16em] rounded-full transition-all shadow-md duration-300"
@@ -222,7 +222,7 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
                 </p>
 
                 <a
-                  href={getWhatsappUrl()}
+                  href={getGeneralWhatsappUrl(language)}
                   target="_blank"
                   rel="noreferrer"
                   className="flex min-h-[44px] items-center justify-center gap-2 w-full py-3.5 bg-espresso text-gold-cream font-bold text-xs tracking-widest uppercase rounded-none hover:bg-gold-accent hover:text-espresso transition-colors"

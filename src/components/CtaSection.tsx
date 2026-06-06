@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { MessageCircle, MapPin } from "lucide-react";
-import { BUSINESS, getWhatsappUrl } from "../data/business";
+import { BUSINESS, getGeneralWhatsappUrl } from "../data/business";
 import { translations } from "../data/translations";
 
 interface CtaSectionProps {
@@ -49,7 +49,7 @@ export default function CtaSection({ language }: CtaSectionProps) {
           {/* Buttons double bar */}
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-lg">
             <a
-              href={getWhatsappUrl()}
+              href={getGeneralWhatsappUrl(language)}
               target="_blank"
               rel="noreferrer"
               className="flex min-h-[44px] items-center justify-center gap-3 w-full py-4 rounded-full bg-[#E6C47E] hover:bg-white text-black font-extrabold text-xs tracking-widest uppercase shadow-lg hover:shadow-[#E6C47E]/10 transition-all duration-300"

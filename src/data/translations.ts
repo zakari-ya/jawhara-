@@ -184,7 +184,7 @@ export const translations: Record<"ar" | "fr", TranslationSchema> = {
       title: "زورونا في شيشاوة",
       subtitle: "نرحب بزيارتكم الكريمة للاستمتاع بمنتجاتنا أو استلام طلبياتكم",
       addressLabel: "العنوان وموقعنا",
-      addressVal: "رمز الخريطة: G6JJ+Q23، شيشاوة، المغرب",
+      addressVal: "الموقع الجديد على خرائط جوجل، شيشاوة، المغرب",
       phoneLabel: "الهاتف وواتساب مباشر",
       hoursLabel: "ساعات العمل والتوصيل",
       hoursVal: "يرجى التواصل معنا عبر الهاتف أو واتساب لتأكيد المواعيد وحجز الطلبيات",
@@ -200,7 +200,7 @@ export const translations: Record<"ar" | "fr", TranslationSchema> = {
       ctaContact: "موقعنا على الخريطة"
     },
     footer: {
-      slogan: "الجودة، الإتقان، والذوق الرفيع — في قلب شيشاوة",
+      slogan: "الجودة، الإتقان، والذوق الرفيع في قلب شيشاوة",
       copyright: "جميع الحقوق محفوظة © 2026 مخبزة وحلويات جوهرة.",
       links: "روابط سريعة",
       address: "شيشاوة، المغرب",
@@ -289,7 +289,7 @@ export const translations: Record<"ar" | "fr", TranslationSchema> = {
       title: "Rendez-nous Visite",
       subtitle: "Venez nous rencontrer ou retirer vos commandes directement en magasin",
       addressLabel: "Adresse de l'Atelier",
-      addressVal: "Code Maps : G6JJ+Q23, Chichaoua, Maroc",
+      addressVal: "Nouvelle localisation Google Maps, Chichaoua, Maroc",
       phoneLabel: "Ligne Directe / WhatsApp",
       hoursLabel: "Ouverture & Retraits",
       hoursVal: "Contactez-nous directement par téléphone ou WhatsApp pour réserver ou commander",

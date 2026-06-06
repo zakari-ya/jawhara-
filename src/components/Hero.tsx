@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { Star } from "lucide-react";
-import { BUSINESS, getWhatsappUrl } from "../data/business";
+import { BUSINESS, getGeneralWhatsappUrl } from "../data/business";
 import { IMAGES } from "../data/products";
 import { scrollToSection } from "../utils/scroll";
 
@@ -142,7 +142,7 @@ export default function Hero({ language }: HeroProps) {
           >
             {/* Left Button: Rounded Solid Gold Button */}
             <a
-              href={getWhatsappUrl()}
+              href={getGeneralWhatsappUrl(language)}
               target="_blank"
               rel="noreferrer"
               className="w-full sm:w-auto group flex items-center justify-center gap-3.5 px-8 py-3.5 bg-gold-accent hover:bg-white text-black font-sans text-xs font-bold tracking-[0.16em] uppercase transition-all duration-300 shadow-xl active:scale-95 cursor-pointer border border-gold-accent"

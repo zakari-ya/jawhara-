@@ -1,6 +1,6 @@
 import type { MouseEvent } from "react";
 import { Phone, Heart, Facebook } from "lucide-react";
-import { BUSINESS, getWhatsappUrl } from "../data/business";
+import { BUSINESS, getGeneralWhatsappUrl } from "../data/business";
 import { translations } from "../data/translations";
 import { LegalView } from "./LegalModal";
 import { scrollToSection } from "../utils/scroll";
@@ -52,7 +52,7 @@ export default function Footer({ language, onOpenLegal }: FooterProps) {
                 <Facebook className="w-4 h-4" />
               </a>
               <a
-                href={getWhatsappUrl()}
+                href={getGeneralWhatsappUrl(language)}
                 target="_blank"
                 rel="noreferrer"
                 className="p-3 rounded-full bg-neutral-900 hover:bg-[#E6C47E] text-[#FAF7F2] hover:text-black border border-gold-accent/20 hover:border-[#E6C47E] transition-all duration-300 cursor-pointer text-center flex items-center justify-center shadow-lg"
@@ -110,10 +110,10 @@ export default function Footer({ language, onOpenLegal }: FooterProps) {
               {language === "ar" ? "المقر الرسمي" : "Atelier"}
             </h4>
             <p className="text-xs sm:text-sm text-[#A19A93] font-sans font-light leading-relaxed">
-              {language === "ar" ? "حي شيشاوة المركزي، بجوار الشارع الرئيسي." : "Centre-ville de Chichaoua, Maroc."}
+              {BUSINESS.address[language]}
             </p>
             <p className="text-xs sm:text-sm text-[#FAF7F2] font-bold leading-none select-all pt-1 font-mono tracking-wider">
-              {BUSINESS.mapCode}, Chichaoua
+              {BUSINESS.mapDisplay[language]}
             </p>
             <div className="pt-4">
               <h4 className="mb-3 text-xs font-bold text-[#E6C47E] tracking-widest uppercase font-sans">

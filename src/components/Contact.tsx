@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { MapPin, Phone, Clock, Facebook, Map, Compass, Send } from "lucide-react";
-import { BUSINESS, getWhatsappUrl } from "../data/business";
+import { BUSINESS, getGeneralWhatsappUrl } from "../data/business";
 import SectionTitle from "./SectionTitle";
 import { translations } from "../data/translations";
 
@@ -96,7 +96,7 @@ export default function Contact({ language }: ContactProps) {
             {/* Quick interactive channels buttons */}
             <div className="flex flex-col sm:flex-row gap-3 pt-6 border-t border-gold-accent/10">
               <a
-                href={getWhatsappUrl()}
+                href={getGeneralWhatsappUrl(language)}
                 target="_blank"
                 rel="noreferrer"
                 className="flex min-h-[44px] items-center justify-center gap-2 flex-grow py-3.5 rounded-full bg-[#E6C47E] hover:bg-white text-black font-extrabold text-xs uppercase tracking-widest text-center shadow-lg transition-all duration-300 cursor-pointer"
@@ -154,7 +154,7 @@ export default function Contact({ language }: ContactProps) {
                 </div>
 
                 <h3 className="text-xl font-bold font-serif text-white tracking-tight mb-1 text-center">
-                  {BUSINESS.mapCode}, Chichaoua
+                  {BUSINESS.mapDisplay[language]}
                 </h3>
                 <p className="text-xs text-[#A19A93] font-light text-center max-w-sm leading-relaxed">
                   {language === "ar"
