@@ -1,6 +1,6 @@
-import React from "react";
 import { motion } from "motion/react";
-import { MessageSquare, BadgeCheck, Check } from "lucide-react";
+import { MessageSquare, BadgeCheck } from "lucide-react";
+import { getWhatsappUrl } from "../data/business";
 import { Product } from "../data/products";
 import { translations } from "../data/translations";
 
@@ -8,7 +8,6 @@ interface ProductCardProps {
   product: Product;
   language: "ar" | "fr";
   index: number;
-  key?: string;
 }
 
 export default function ProductCard({ product, language, index }: ProductCardProps) {
@@ -17,12 +16,11 @@ export default function ProductCard({ product, language, index }: ProductCardPro
   const descText = product.description[language];
 
   const handleProductOrder = () => {
-    const textMsg = encodeURIComponent(
+    const message =
       language === "ar"
         ? `مرحباً مخبزة جوهرة، أريد طلب منتج: "${nameText}" بسعر ${product.price}.`
-        : `Bonjour Boulangerie Jawhara, je souhaite commander : "${nameText}" au prix de ${product.price}.`
-    );
-    window.open(`https://wa.me/212622212159?text=${textMsg}`, "_blank");
+        : `Bonjour Boulangerie Jawhara, je souhaite commander : "${nameText}" au prix de ${product.price}.`;
+    window.open(getWhatsappUrl(message), "_blank");
   };
 
   return (
@@ -40,6 +38,8 @@ export default function ProductCard({ product, language, index }: ProductCardPro
             src={product.image}
             alt={nameText}
             referrerPolicy="no-referrer"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
           {/* Subtle vignette on image */}
@@ -69,7 +69,7 @@ export default function ProductCard({ product, language, index }: ProductCardPro
           <h4 className="text-base sm:text-lg font-bold text-[#FAF7F2] mb-2 font-serif tracking-tight leading-snug group-hover:text-[#E6C47E] transition-colors">
             {nameText}
           </h4>
-          <p className="text-xs text-[#A19A93] line-clamp-3 leading-relaxed mb-6 font-sans">
+          <p className="text-sm text-[#A19A93] line-clamp-3 leading-relaxed mb-6 font-sans">
             {descText}
           </p>
         </div>
@@ -78,8 +78,9 @@ export default function ProductCard({ product, language, index }: ProductCardPro
       {/* order Trigger Button */}
       <div className="px-1.5 pt-2">
         <button
+          type="button"
           onClick={handleProductOrder}
-          className="flex items-center justify-center gap-2 w-full py-3 rounded-full bg-transparent hover:bg-[#E6C47E] text-[#E6C47E] hover:text-black border border-gold-accent/30 hover:border-[#E6C47E] text-[10px] font-bold uppercase tracking-widest transition-all duration-300 cursor-pointer"
+          className="flex min-h-[44px] items-center justify-center gap-2 w-full py-3 rounded-full bg-transparent hover:bg-[#E6C47E] text-[#E6C47E] hover:text-black border border-gold-accent/30 hover:border-[#E6C47E] text-[10px] font-bold uppercase tracking-widest transition-all duration-300 cursor-pointer"
         >
           <MessageSquare className="w-3.5 h-3.5" />
           <span>{t.bestSellers.ctaOrder}</span>
@@ -88,4 +89,3 @@ export default function ProductCard({ product, language, index }: ProductCardPro
     </motion.div>
   );
 }
-

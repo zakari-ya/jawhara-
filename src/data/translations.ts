@@ -97,6 +97,10 @@ export interface TranslationSchema {
     copyright: string;
     links: string;
     address: string;
+    legal: string;
+    privacy: string;
+    terms: string;
+    closing: string;
   };
 }
 
@@ -149,7 +153,7 @@ export const translations: Record<"ar" | "fr", TranslationSchema> = {
     occasions: {
       title: "حلويات وكيكات لكل مناسبة",
       subtitle: "نصنع ذكرياتكم السعيدة بتفاصيل حلوة تحبس الأنفاس وترضي الأذواق الراقية",
-      p1: "نحن في مخبزة جوهرة نفهم أهمية لحظاتكم السعيدة. لذا، صممنا قسماً خاصاً كلياً لاستقبال وتنسيق طلبيات مناسباتكم الكبرى والصغرى. من كيكة عيد الميلاد البسيطة إلىPieces Montées الفاخرة للأعراس وعقد القران والمؤتمرات.",
+      p1: "نحن في مخبزة جوهرة نفهم أهمية لحظاتكم السعيدة. لذا، صممنا قسماً خاصاً لاستقبال وتنسيق طلبيات مناسباتكم الكبرى والصغرى، من كيكات أعياد الميلاد إلى حلويات الأعراس وعقد القران والمؤتمرات.",
       p2: "كل تفصيل في الطلبيات الخاصة يتم الإشراف عليه بدقة متناهية: من حشوة الكعكة، الألوان المختارة، إلى علب التقديم الراقية لإبهار ضيوفكم.",
       service1: "أعياد الميلاد والمفاجآت",
       service2: "حفلات عقد القران",
@@ -197,9 +201,13 @@ export const translations: Record<"ar" | "fr", TranslationSchema> = {
     },
     footer: {
       slogan: "الجودة، الإتقان، والذوق الرفيع — في قلب شيشاوة",
-      copyright: "جميع الحقوق محفوظة © 2026 مخبزة وحلويات جوهرة. تصميم فاخر.",
+      copyright: "جميع الحقوق محفوظة © 2026 مخبزة وحلويات جوهرة.",
       links: "روابط سريعة",
-      address: "شيشاوة، المغرب"
+      address: "شيشاوة، المغرب",
+      legal: "معلومات قانونية",
+      privacy: "الخصوصية",
+      terms: "شروط الاستخدام",
+      closing: "مع محبة خاصة لشيشاوة"
     }
   },
   fr: {
@@ -210,7 +218,7 @@ export const translations: Record<"ar" | "fr", TranslationSchema> = {
       gallery: "Galerie",
       reviews: "Avis Clients",
       contact: "Contact",
-      order: "Commander Now"
+      order: "Commander"
     },
     hero: {
       title: "Boulangerie Jawhara",
@@ -298,9 +306,13 @@ export const translations: Record<"ar" | "fr", TranslationSchema> = {
     },
     footer: {
       slogan: "L'art du bon goût, l'amour du travail bien fait à Chichaoua.",
-      copyright: "Tous droits réservés © 2026 Boulangerie Jawhara. Design Prestige.",
+      copyright: "Tous droits réservés © 2026 Boulangerie Jawhara.",
       links: "Accès Rapide",
-      address: "Chichaoua, Maroc"
+      address: "Chichaoua, Maroc",
+      legal: "Informations",
+      privacy: "Confidentialité",
+      terms: "Conditions",
+      closing: "Avec amour pour Chichaoua"
     }
   }
 };

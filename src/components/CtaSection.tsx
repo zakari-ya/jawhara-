@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { MessageCircle, MapPin } from "lucide-react";
+import { BUSINESS, getWhatsappUrl } from "../data/business";
 import { translations } from "../data/translations";
 
 interface CtaSectionProps {
@@ -10,14 +11,13 @@ export default function CtaSection({ language }: CtaSectionProps) {
   const t = translations[language];
 
   const handleOpenMap = () => {
-    window.open("https://maps.google.com/?q=G6JJ+Q23,Chichaoua,Morocco", "_blank");
+    window.open(BUSINESS.mapUrl, "_blank");
   };
 
   return (
     <section className="py-20 bg-[#030303] overflow-hidden relative text-center">
-      {/* Absolute Glow */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#040404] to-[#010101]" />
-      <div className="absolute top-0 bottom-0 left-1/4 right-1/4 bg-[radial-gradient(circle_at_center,rgba(230,196,126,0.08)_0%,transparent_100%)] z-0 pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gold-accent/20" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
         <motion.div
@@ -49,18 +49,19 @@ export default function CtaSection({ language }: CtaSectionProps) {
           {/* Buttons double bar */}
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-lg">
             <a
-              href="https://wa.me/212622212159"
+              href={getWhatsappUrl()}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center justify-center gap-3 w-full py-4 rounded-full bg-[#E6C47E] hover:bg-white text-black font-extrabold text-xs tracking-widest uppercase shadow-lg hover:shadow-[#E6C47E]/10 transition-all duration-300"
+              className="flex min-h-[44px] items-center justify-center gap-3 w-full py-4 rounded-full bg-[#E6C47E] hover:bg-white text-black font-extrabold text-xs tracking-widest uppercase shadow-lg hover:shadow-[#E6C47E]/10 transition-all duration-300"
             >
               <MessageCircle className="w-4 h-4 fill-current text-black" />
               <span>{t.ctaSection.ctaWhatsapp}</span>
             </a>
 
             <button
+              type="button"
               onClick={handleOpenMap}
-              className="flex items-center justify-center gap-2 w-full py-4 rounded-full border border-gold-accent/25 hover:border-[#E6C47E] bg-white/5 hover:bg-white/10 text-[#E6C47E] font-extrabold text-xs tracking-widest uppercase transition-all duration-300 backdrop-blur-sm cursor-pointer"
+              className="flex min-h-[44px] items-center justify-center gap-2 w-full py-4 rounded-full border border-gold-accent/25 hover:border-[#E6C47E] bg-white/5 hover:bg-white/10 text-[#E6C47E] font-extrabold text-xs tracking-widest uppercase transition-all duration-300 backdrop-blur-sm cursor-pointer"
             >
               <MapPin className="w-4 h-4 text-[#E6C47E]" />
               <span>{t.ctaSection.ctaContact}</span>

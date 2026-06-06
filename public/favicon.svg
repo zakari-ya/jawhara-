@@ -1,0 +1,9 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jawhara Bakery favicon">
+  <rect width="64" height="64" rx="16" fill="#050505"/>
+  <circle cx="32" cy="32" r="23" fill="none" stroke="#E6C47E" stroke-width="2"/>
+  <path d="M32 13v38" stroke="#E6C47E" stroke-width="3" stroke-linecap="round"/>
+  <path d="M23 23c7 1 9 5 9 9-7-1-9-5-9-9Z" fill="#E6C47E"/>
+  <path d="M41 23c-7 1-9 5-9 9 7-1 9-5 9-9Z" fill="#E6C47E"/>
+  <path d="M22 38c8 0 10 4 10 9-8 0-10-4-10-9Z" fill="#E6C47E"/>
+  <path d="M42 38c-8 0-10 4-10 9 8 0 10-4 10-9Z" fill="#E6C47E"/>
+</svg>

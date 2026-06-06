@@ -18,8 +18,8 @@ export interface Review {
 }
 
 export const bakeryRating = {
-  score: 4.5,
-  totalReviews: 12,
+  score: BUSINESS.reviewSummary.score,
+  totalReviews: BUSINESS.reviewSummary.totalReviews,
   stars: 5
 };
 
@@ -61,3 +61,4 @@ export const reviews: Review[] = [
     }
   }
 ];
+import { BUSINESS } from "./business";

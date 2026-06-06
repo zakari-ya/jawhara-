@@ -1,20 +1,30 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Jawhara Bakery Website
 
-# Run and deploy your AI Studio app
+A bilingual Arabic/French brochure website for Boulangerie & Pâtisserie Jawhara in Chichaoua, Morocco.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/27a7077c-a57c-4871-ab4a-1f7a279bd162
+- Arabic-first layout with French language toggle
+- Premium bakery landing page with product categories, best sellers, gallery, reviews, and contact details
+- WhatsApp ordering links
+- Google Maps and Facebook external links
+- Lightweight privacy and terms content for client handoff
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
+Prerequisite: Node.js 20 or newer.
 
+```bash
+npm install
+npm run dev
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Production Build
+
+```bash
+npm run lint
+npm run build
+npm run preview
+```
+
+The production output is generated in `dist/`.

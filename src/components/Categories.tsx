@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
-import { ArrowLeft, ArrowRight, ShoppingCart } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { getWhatsappUrl } from "../data/business";
 import SectionTitle from "./SectionTitle";
 import { categories } from "../data/products";
 import { translations } from "../data/translations";
@@ -12,12 +13,11 @@ export default function Categories({ language }: CategoriesProps) {
   const t = translations[language];
 
   const handleCategoryOrder = (categoryName: string) => {
-    const textMsg = encodeURIComponent(
+    const message =
       language === "ar"
         ? `مرحباً مخبزة جوهرة، أريد الاستفسار عن حجز طلبيات من فئة: ${categoryName}`
-        : `Bonjour Boulangerie Jawhara, je souhaite me renseigner sur les commandes de la catégorie : ${categoryName}`
-    );
-    window.open(`https://wa.me/212622212159?text=${textMsg}`, "_blank");
+        : `Bonjour Boulangerie Jawhara, je souhaite me renseigner sur les commandes de la catégorie : ${categoryName}`;
+    window.open(getWhatsappUrl(message), "_blank");
   };
 
   return (
@@ -49,6 +49,8 @@ export default function Categories({ language }: CategoriesProps) {
                     src={category.image}
                     alt={titleText}
                     referrerPolicy="no-referrer"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
                   {/* Subtle warm overlay */}
@@ -73,8 +75,9 @@ export default function Categories({ language }: CategoriesProps) {
 
                   {/* CTA Area */}
                   <button
+                    type="button"
                     onClick={() => handleCategoryOrder(titleText)}
-                    className="group/btn flex items-center justify-between text-[11px] font-bold uppercase tracking-widest text-[#E6C47E] hover:text-[#FAF7F2] w-full pt-4 border-t border-gold-accent/10 transition-colors"
+                    className="group/btn flex min-h-[44px] items-center justify-between text-[11px] font-bold uppercase tracking-widest text-[#E6C47E] hover:text-[#FAF7F2] w-full pt-4 border-t border-gold-accent/10 transition-colors"
                   >
                     <span>{t.categories.ctaOrder}</span>
                     {language === "ar" ? (

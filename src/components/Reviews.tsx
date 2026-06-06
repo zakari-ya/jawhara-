@@ -8,10 +8,25 @@ interface ReviewsProps {
   language: "ar" | "fr";
 }
 
+type ReviewMetric = "food" | "service" | "atmosphere";
+
+function getMetricAverage(metric: ReviewMetric) {
+  const values = reviews
+    .map((review) => review.metrics?.[metric])
+    .filter((value): value is number => typeof value === "number");
+
+  if (!values.length) return bakeryRating.score;
+  return values.reduce((total, value) => total + value, 0) / values.length;
+}
+
 export default function Reviews({ language }: ReviewsProps) {
   const t = translations[language];
+  const metricRows = [
+    { label: t.reviews.food, value: getMetricAverage("food") },
+    { label: t.reviews.service, value: getMetricAverage("service") },
+    { label: t.reviews.atmosphere, value: getMetricAverage("atmosphere") },
+  ];
 
-  // Helper to render rating star loops
   const renderStars = (rating: number) => {
     const stars = [];
     const fullStars = Math.floor(rating);
@@ -30,7 +45,7 @@ export default function Reviews({ language }: ReviewsProps) {
            </div>
          );
        } else {
-         stars.push(<Star key={i} className="w-4 h-4 text-neutral-800 fill-neutral-905" />);
+         stars.push(<Star key={i} className="w-4 h-4 text-neutral-800 fill-neutral-800" />);
        }
     }
     return stars;
@@ -42,7 +57,7 @@ export default function Reviews({ language }: ReviewsProps) {
         <SectionTitle
           title={t.reviews.title}
           subtitle={t.reviews.subtitle}
-          badge={language === "ar" ? "ثكة الزبناء الكرام" : "Témoignages Clients"}
+          badge={language === "ar" ? "ثقة الزبناء الكرام" : "Témoignages Clients"}
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mt-12">
@@ -75,41 +90,25 @@ export default function Reviews({ language }: ReviewsProps) {
 
             <p className="text-[11px] text-[#A19A93] mb-8 font-sans font-medium tracking-wide">
               {language === "ar"
-                ? `بناءً على ${bakeryRating.totalReviews} تقييم حقيقي على جوجل`
-                : `Basé sur ${bakeryRating.totalReviews} avis réels Google Maps`}
+                ? `بناءً على ${bakeryRating.totalReviews} تقييم منشور`
+                : `Basé sur ${bakeryRating.totalReviews} avis publiés`}
             </p>
 
-            {/* Performance breakdown indicators standard */}
             <div className="w-full space-y-4">
-              <div>
-                <div className="flex justify-between text-xs font-bold mb-1.5 text-[#FAF7F2] font-sans uppercase tracking-widest">
-                  <span>{t.reviews.food}</span>
-                  <span>5.0 / 5</span>
+              {metricRows.map((metric) => (
+                <div key={metric.label}>
+                  <div className="flex justify-between text-xs font-bold mb-1.5 text-[#FAF7F2] font-sans uppercase tracking-widest">
+                    <span>{metric.label}</span>
+                    <span>{metric.value.toFixed(1)} / 5</span>
+                  </div>
+                  <div className="h-[3px] w-full bg-neutral-900 overflow-hidden">
+                    <div
+                      className="h-full bg-[#E6C47E]"
+                      style={{ width: `${Math.min((metric.value / 5) * 100, 100)}%` }}
+                    />
+                  </div>
                 </div>
-                <div className="h-[3px] w-full bg-neutral-900 overflow-hidden">
-                  <div className="h-full bg-[#E6C47E]" style={{ width: "100%" }}></div>
-                </div>
-              </div>
-
-              <div>
-                <div className="flex justify-between text-xs font-bold mb-1.5 text-[#FAF7F2] font-sans uppercase tracking-widest">
-                  <span>{t.reviews.service}</span>
-                  <span>4.8 / 5</span>
-                </div>
-                <div className="h-[3px] w-full bg-neutral-900 overflow-hidden">
-                  <div className="h-full bg-[#E6C47E]" style={{ width: "96%" }}></div>
-                </div>
-              </div>
-
-              <div>
-                <div className="flex justify-between text-xs font-bold mb-1.5 text-[#FAF7F2] font-sans uppercase tracking-widest">
-                  <span>{t.reviews.atmosphere}</span>
-                  <span>4.6 / 5</span>
-                </div>
-                <div className="h-[3px] w-full bg-neutral-900 overflow-hidden">
-                  <div className="h-full bg-[#E6C47E]" style={{ width: "92%" }}></div>
-                </div>
-              </div>
+              ))}
             </div>
           </motion.div>
 

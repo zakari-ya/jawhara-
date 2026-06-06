@@ -31,9 +31,6 @@ export default function Story({ language }: StoryProps) {
 
   return (
     <section id="story" className="py-24 bg-black overflow-hidden relative border-b border-gold-accent/10">
-      {/* Decorative Warm Backglow */}
-      <div className="absolute right-0 top-1/4 w-96 h-96 bg-gold-accent/5 rounded-full blur-3xl pointer-events-none" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           {/* Left Column: Premium Interactive Plating Snapshot */}
@@ -50,9 +47,15 @@ export default function Story({ language }: StoryProps) {
             <div className="relative rounded-none overflow-hidden aspect-[4/5] shadow-2xl z-10 bg-neutral-950 border-8 border-[#0C0C0C] -rotate-1">
               <img
                 src={IMAGES.moroccanSweets}
-                alt="Moroccan traditional sweets plate"
+                alt={
+                  language === "ar"
+                    ? "تشكيلة حلويات مغربية تقليدية من مخبزة جوهرة"
+                    : "Traditional Moroccan sweets from Boulangerie Jawhara"
+                }
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-103"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.03]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
             </div>
@@ -65,14 +68,14 @@ export default function Story({ language }: StoryProps) {
                 className="bg-black/95 text-[#FAF7F2] px-5 py-3 rounded-none shadow-xl flex items-center gap-3 border border-gold-accent/30"
               >
                 <div className="w-10 h-10 rounded-none bg-[#E6C47E] flex items-center justify-center text-black font-black text-sm font-sans">
-                  100%
+                  J
                 </div>
                 <div>
                   <h5 className="text-xs font-bold text-[#E6C47E] uppercase tracking-widest font-sans">
-                    {language === "ar" ? "صناعة تقليدية" : "Garantie Artisanale"}
+                    {language === "ar" ? "صناعة حرفية" : "Savoir-faire"}
                   </h5>
                   <p className="text-[10px] text-chocolate-dark font-sans mt-0.5">
-                    {language === "ar" ? "لوز بلدي خالص" : "Amandes locales nobles"}
+                    {language === "ar" ? "تحضير بعناية" : "Préparé avec soin"}
                   </p>
                 </div>
               </motion.div>
@@ -96,7 +99,7 @@ export default function Story({ language }: StoryProps) {
               className="space-y-6 text-[#A19A93] leading-relaxed mb-12 text-sm sm:text-base md:text-lg"
             >
               <p className="font-sans font-light">{t.story.paragraph1}</p>
-              <p className="text-[#E6C47E] border-r-2 border-[#E6C47E]/40 pr-4 italic font-serif">
+              <p className="text-[#E6C47E] border border-[#E6C47E]/20 bg-[#E6C47E]/5 p-4 italic font-serif">
                 {t.story.paragraph2}
               </p>
             </motion.div>
@@ -121,7 +124,7 @@ export default function Story({ language }: StoryProps) {
                       <h4 className="text-base font-bold text-[#FAF7F2] mb-1 font-serif">
                         {feature.title}
                       </h4>
-                      <p className="text-xs sm:text-sm text-[#A19A93] leading-relaxed font-sans font-light">
+                      <p className="text-sm text-[#A19A93] leading-relaxed font-sans font-light">
                         {feature.desc}
                       </p>
                     </div>

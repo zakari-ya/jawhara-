@@ -26,12 +26,17 @@ export interface Category {
   image: string;
 }
 
-// Custom assets loaded from generated files
+const heroImage = new URL("../assets/images/hero_bakery_1780698244565.png", import.meta.url).href;
+const moroccanSweetsImage = new URL("../assets/images/moroccan_sweets_1780698261939.png", import.meta.url).href;
+const celebrationCakeImage = new URL("../assets/images/celebration_cake_1780698277169.png", import.meta.url).href;
+const viennoiserieBreadImage = new URL("../assets/images/viennoiserie_bread_1780698293101.png", import.meta.url).href;
+
+// Custom assets loaded through Vite so production builds emit them correctly.
 export const IMAGES = {
-  hero: "/src/assets/images/hero_bakery_1780698244565.png",
-  moroccanSweets: "/src/assets/images/moroccan_sweets_1780698261939.png",
-  celebrationCake: "/src/assets/images/celebration_cake_1780698277169.png",
-  viennoiserieBread: "/src/assets/images/viennoiserie_bread_1780698293101.png"
+  hero: heroImage,
+  moroccanSweets: moroccanSweetsImage,
+  celebrationCake: celebrationCakeImage,
+  viennoiserieBread: viennoiserieBreadImage
 };
 
 export const categories: Category[] = [

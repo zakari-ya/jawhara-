@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
-import { MessageSquare, CheckCircle, Palette } from "lucide-react";
+import { CheckCircle, Palette } from "lucide-react";
+import { getWhatsappUrl } from "../data/business";
 import SectionTitle from "./SectionTitle";
 import { translations } from "../data/translations";
 import { IMAGES } from "../data/products";
@@ -21,19 +22,15 @@ export default function Occasions({ language }: OccasionsProps) {
   ];
 
   const handleCustomOrder = () => {
-    const textMsg = encodeURIComponent(
+    const message =
       language === "ar"
         ? "مرحباً مخبزة جوهرة، أريد حجز تصميم كعكة أو طلبيات لمناسبة خاصة. هل يمكنكم تزويدي بالأنواع المتوفرة والأسعار؟"
-        : "Bonjour Boulangerie Jawhara, je souhaite réserver une création personnalisée ou passer une commande pour un événement. Quels sont vos tarifs et options ?"
-    );
-    window.open(`https://wa.me/212622212159?text=${textMsg}`, "_blank");
+        : "Bonjour Boulangerie Jawhara, je souhaite réserver une création personnalisée ou passer une commande pour un événement. Quels sont vos tarifs et options ?";
+    window.open(getWhatsappUrl(message), "_blank");
   };
 
   return (
     <section id="occasions" className="py-24 bg-black relative overflow-hidden border-b border-gold-accent/10 bg-artisan-pattern">
-      {/* Decorative Ornaments Background */}
-      <div className="absolute left-0 bottom-0 w-80 h-85 bg-gold-accent/5 rounded-full blur-3xl pointer-events-none" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           {/* Left Column: Descriptive lists */}
@@ -50,7 +47,7 @@ export default function Occasions({ language }: OccasionsProps) {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="space-y-6 text-[#A19A93] font-sans leading-relaxed mb-10 text-xs sm:text-sm md:text-base font-light"
+              className="space-y-6 text-[#A19A93] font-sans leading-relaxed mb-10 text-sm md:text-base font-light"
             >
               <p>{t.occasions.p1}</p>
               <p>{t.occasions.p2}</p>
@@ -68,7 +65,7 @@ export default function Occasions({ language }: OccasionsProps) {
                   className="flex items-center gap-3 p-3 rounded-none bg-[#0C0C0C]/80 border border-gold-accent/10 hover:border-gold-accent/40 transition-colors"
                 >
                   <CheckCircle className="w-4 h-4 text-[#E6C47E] flex-shrink-0" />
-                  <span className="text-xs font-semibold text-[#FAF7F2]">{service}</span>
+                  <span className="text-sm font-semibold text-[#FAF7F2]">{service}</span>
                 </motion.div>
               ))}
             </div>
@@ -81,8 +78,9 @@ export default function Occasions({ language }: OccasionsProps) {
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <button
+                type="button"
                 onClick={handleCustomOrder}
-                className="flex items-center justify-center gap-3 w-gradient px-8 py-3.5 rounded-full bg-[#E6C47E] hover:bg-white text-black font-extrabold text-xs tracking-widest uppercase shadow-md transition-all cursor-pointer hover:scale-[1.02] active:scale-95 duration-300"
+                className="flex min-h-[44px] w-full sm:w-auto items-center justify-center gap-3 px-8 py-3.5 rounded-full bg-[#E6C47E] hover:bg-white text-black font-extrabold text-xs tracking-widest uppercase shadow-md transition-all cursor-pointer hover:scale-[1.02] active:scale-95 duration-300"
               >
                 <Palette className="w-4 h-4 text-black rotate-12" />
                 <span>{t.occasions.ctaCustom}</span>
@@ -99,14 +97,17 @@ export default function Occasions({ language }: OccasionsProps) {
             className="lg:col-span-5 order-1 lg:order-2"
           >
             <div className="relative">
-              {/* Gold backing aura circle */}
-              <div className="absolute inset-0 bg-gold-accent/5 rounded-full blur-2xl scale-95" />
-
               <div className="relative rounded-none overflow-hidden aspect-[4/5] shadow-2xl bg-neutral-950 border-8 border-[#0C0C0C] rotate-[1.5deg] z-10">
                 <img
                   src={IMAGES.celebrationCake}
-                  alt="Luxury Celebration Cake design"
+                  alt={
+                    language === "ar"
+                      ? "كيكة مناسبات من مخبزة جوهرة"
+                      : "Celebration cake by Boulangerie Jawhara"
+                  }
                   referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
                 {/* Visual elegance shine block */}
@@ -116,7 +117,7 @@ export default function Occasions({ language }: OccasionsProps) {
               {/* Decorative wheat or ribbon floating cards */}
               <div className="absolute -top-4 -right-4 z-20">
                 <div className="bg-black text-[#E6C47E] font-bold text-[9px] tracking-widest uppercase px-3 py-1.5 rounded-none shadow-md border border-gold-accent/25">
-                  MARIAGES & FETES
+                  {language === "ar" ? "أعراس ومناسبات" : "MARIAGES & FETES"}
                 </div>
               </div>
             </div>

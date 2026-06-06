@@ -1,6 +1,5 @@
 {
   "name": "مخبزة وحلويات جوهرة - Boulangerie Jawhara",
-  "description": "الموقع الرسمي لمخبزة وحلويات جوهرة في شيشاوة - حلويات مغربية وعصرية، كالت وباتيسيري راقية. Site officiel de la Boulangerie & Pâtisserie Jawhara à Chichaoua - Pains, viennoiseries et douceurs marocaines.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "description": "موقع تعريفي لمخبزة وحلويات جوهرة في شيشاوة، مع منتجات مختارة وطلبات مباشرة عبر واتساب.",
+  "requestFramePermissions": []
 }

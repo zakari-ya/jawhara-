@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Eye, CookingPot } from "lucide-react";
+import { Eye } from "lucide-react";
 import SectionTitle from "./SectionTitle";
 import { translations } from "../data/translations";
 import { IMAGES } from "../data/products";
@@ -12,6 +12,12 @@ interface GalleryProps {
 export default function Gallery({ language }: GalleryProps) {
   const [filter, setFilter] = useState<"all" | "sweet" | "bread" | "cake">("all");
   const t = translations[language];
+  const filters = [
+    { id: "all", label: t.gallery.all },
+    { id: "sweet", label: t.gallery.sweet },
+    { id: "bread", label: t.gallery.bread },
+    { id: "cake", label: t.gallery.cake },
+  ] as const;
 
   // Collection of our custom high-end gallery files
   const galleryItems = [
@@ -66,48 +72,22 @@ export default function Gallery({ language }: GalleryProps) {
           badge={language === "ar" ? "ألبوم المخبزة" : "Galerie Photos"}
         />
 
-        {/* Filter Navigation Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
-          <button
-            onClick={() => setFilter("all")}
-            className={`px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all cursor-pointer font-sans duration-300 ${
-              filter === "all"
-                ? "bg-[#E6C47E] text-black border border-[#E6C47E]"
-                : "bg-black text-[#FAF7F2] hover:bg-white/5 border border-gold-accent/15 hover:border-[#E6C47E]"
-            }`}
-          >
-            {t.gallery.all}
-          </button>
-          <button
-            onClick={() => setFilter("sweet")}
-            className={`px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all cursor-pointer font-sans duration-300 ${
-              filter === "sweet"
-                ? "bg-[#E6C47E] text-black border border-[#E6C47E]"
-                : "bg-black text-[#FAF7F2] hover:bg-white/5 border border-gold-accent/15 hover:border-[#E6C47E]"
-            }`}
-          >
-            {t.gallery.sweet}
-          </button>
-          <button
-            onClick={() => setFilter("bread")}
-            className={`px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all cursor-pointer font-sans duration-300 ${
-              filter === "bread"
-                ? "bg-[#E6C47E] text-black border border-[#E6C47E]"
-                : "bg-black text-[#FAF7F2] hover:bg-white/5 border border-gold-accent/15 hover:border-[#E6C47E]"
-            }`}
-          >
-            {t.gallery.bread}
-          </button>
-          <button
-            onClick={() => setFilter("cake")}
-            className={`px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all cursor-pointer font-sans duration-300 ${
-              filter === "cake"
-                ? "bg-[#E6C47E] text-black border border-[#E6C47E]"
-                : "bg-black text-[#FAF7F2] hover:bg-white/5 border border-gold-accent/15 hover:border-[#E6C47E]"
-            }`}
-          >
-            {t.gallery.cake}
-          </button>
+          {filters.map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => setFilter(item.id)}
+              aria-pressed={filter === item.id}
+              className={`min-h-[44px] px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all cursor-pointer font-sans duration-300 ${
+                filter === item.id
+                  ? "bg-[#E6C47E] text-black border border-[#E6C47E]"
+                  : "bg-black text-[#FAF7F2] hover:bg-white/5 border border-gold-accent/15 hover:border-[#E6C47E]"
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
         </div>
 
         {/* Responsive Gallery Grid with AnimatePresence */}
@@ -116,7 +96,7 @@ export default function Gallery({ language }: GalleryProps) {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           <AnimatePresence mode="popLayout">
-            {filteredItems.map((item, index) => {
+            {filteredItems.map((item) => {
               const label = item.title[language];
               return (
                 <motion.div
@@ -132,6 +112,8 @@ export default function Gallery({ language }: GalleryProps) {
                     src={item.src}
                     alt={label}
                     referrerPolicy="no-referrer"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
 

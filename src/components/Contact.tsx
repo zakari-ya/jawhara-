@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { MapPin, Phone, Clock, Facebook, Map, Compass, Send } from "lucide-react";
+import { BUSINESS, getWhatsappUrl } from "../data/business";
 import SectionTitle from "./SectionTitle";
 import { translations } from "../data/translations";
 
@@ -11,15 +12,11 @@ export default function Contact({ language }: ContactProps) {
   const t = translations[language];
 
   const handleOpenMap = () => {
-    // Open Google Maps search of the specific location plus code in Chichaoua
-    window.open("https://maps.google.com/?q=G6JJ+Q23,Chichaoua,Morocco", "_blank");
+    window.open(BUSINESS.mapUrl, "_blank");
   };
 
   return (
     <section id="contact" className="py-24 bg-[#050505] relative overflow-hidden">
-      {/* Structural backgrounds */}
-      <div className="absolute right-0 bottom-0 w-80 h-80 bg-gold-accent/5 rounded-full blur-3xl pointer-events-none" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           title={t.contact.title}
@@ -47,9 +44,9 @@ export default function Contact({ language }: ContactProps) {
                     {t.contact.addressLabel}
                   </h4>
                   <p className="text-sm text-[#A19A93] font-light mb-2">
-                    {t.contact.addressVal}
+                    {BUSINESS.address[language]}
                   </p>
-                  <p className="text-xs text-chocolate-dark font-light">
+                  <p className="text-sm text-chocolate-dark font-light">
                     {language === "ar"
                       ? "الموقع المركزي بشيشاوة — يسهل الوصول إلينا بجوار الشارع الرئيسي."
                       : "Emplacement central facile d'accès à Chichaoua, près de l'avenue principale."}
@@ -67,9 +64,9 @@ export default function Contact({ language }: ContactProps) {
                     {t.contact.phoneLabel}
                   </h4>
                   <p className="text-lg font-extrabold text-[#E6C47E] tracking-tight mb-2 font-mono">
-                    0622212159
+                    {BUSINESS.phoneDisplay}
                   </p>
-                  <p className="text-xs text-chocolate-dark font-light">
+                  <p className="text-sm text-chocolate-dark font-light">
                     {language === "ar"
                       ? "للاستفسار السريع أو طلب الكعكات للمناسبات يرجى الاتصال مباشرة."
                       : "Commandes directes de gâteaux de mariage et biscuits traditionnels par téléphone."}
@@ -99,20 +96,20 @@ export default function Contact({ language }: ContactProps) {
             {/* Quick interactive channels buttons */}
             <div className="flex flex-col sm:flex-row gap-3 pt-6 border-t border-gold-accent/10">
               <a
-                href="https://wa.me/212622212159"
+                href={getWhatsappUrl()}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center gap-2 flex-grow py-3.5 rounded-full bg-[#E6C47E] hover:bg-white text-black font-extrabold text-xs uppercase tracking-widest text-center shadow-lg transition-all duration-300 cursor-pointer"
+                className="flex min-h-[44px] items-center justify-center gap-2 flex-grow py-3.5 rounded-full bg-[#E6C47E] hover:bg-white text-black font-extrabold text-xs uppercase tracking-widest text-center shadow-lg transition-all duration-300 cursor-pointer"
               >
                 <Compass className="w-4 h-4 text-black" />
                 <span>{t.contact.ctaWhatsapp}</span>
               </a>
 
               <a
-                href="https://www.facebook.com/search/top?q=%D9%85%D8%AE%D8%A8%D8%B2%D8%A9%20%D9%85%D9%88%D8%A7%D9%84%20%D8%AD%D9%84%D9%88%D9%8A%D8%A7%D8%AA%20%D8%AC%D9%88%D9%87%D8%B1%D8%A9"
+                href={BUSINESS.facebookUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center gap-2 flex-grow py-3.5 border border-gold-accent/20 hover:border-[#E6C47E] rounded-full text-[#E6C47E] hover:text-white hover:bg-white/5 font-extrabold text-xs uppercase tracking-widest text-center transition-all duration-300 cursor-pointer"
+                className="flex min-h-[44px] items-center justify-center gap-2 flex-grow py-3.5 border border-gold-accent/20 hover:border-[#E6C47E] rounded-full text-[#E6C47E] hover:text-white hover:bg-white/5 font-extrabold text-xs uppercase tracking-widest text-center transition-all duration-300 cursor-pointer"
               >
                 <Facebook className="w-4 h-4 text-[#E6C47E]" />
                 <span>{t.contact.ctaFacebook}</span>
@@ -139,7 +136,7 @@ export default function Contact({ language }: ContactProps) {
                   CHICHAOUA GPS COORDINATES
                 </span>
                 <span className="flex h-2.5 w-2.5 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E6C47E] opacity-75"></span>
+                  <span className="motion-safe:animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E6C47E] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#E6C47E]"></span>
                 </span>
               </div>
@@ -148,16 +145,16 @@ export default function Contact({ language }: ContactProps) {
               <div className="relative z-10 flex flex-col items-center justify-center py-10">
                 <div className="relative mb-4">
                   {/* Concentric expanding ripples */}
-                  <div className="absolute -inset-8 bg-[#E6C47E]/10 rounded-full animate-ping [animation-duration:3s]" />
-                  <div className="absolute -inset-4 bg-[#E6C47E]/20 rounded-full animate-ping [animation-duration:2s]" />
+                  <div className="absolute -inset-8 bg-[#E6C47E]/10 rounded-full motion-safe:animate-ping [animation-duration:3s]" />
+                  <div className="absolute -inset-4 bg-[#E6C47E]/20 rounded-full motion-safe:animate-ping [animation-duration:2s]" />
 
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-[#E6C47E] to-[#FAF7F2] border border-white/10 shadow-xl flex items-center justify-center text-black scale-102">
-                    <Map className="w-8 h-8 animate-bounce" />
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-[#E6C47E] to-[#FAF7F2] border border-white/10 shadow-xl flex items-center justify-center text-black scale-[1.02]">
+                    <Map className="w-8 h-8 transition-transform duration-300 group-hover:rotate-3 group-hover:scale-105" />
                   </div>
                 </div>
 
                 <h3 className="text-xl font-bold font-serif text-white tracking-tight mb-1 text-center">
-                  G6JJ+Q23, Chichaoua
+                  {BUSINESS.mapCode}, Chichaoua
                 </h3>
                 <p className="text-xs text-[#A19A93] font-light text-center max-w-sm leading-relaxed">
                   {language === "ar"
@@ -169,8 +166,9 @@ export default function Contact({ language }: ContactProps) {
               {/* CTA button to redirect to Maps */}
               <div className="relative z-10">
                 <button
+                  type="button"
                   onClick={handleOpenMap}
-                  className="w-full flex items-center justify-center gap-2.5 py-4 rounded-full bg-[#E6C47E] hover:bg-white text-black font-extrabold text-sm uppercase tracking-widest transition-all pointer-events-auto shadow-lg cursor-pointer"
+                  className="w-full min-h-[44px] flex items-center justify-center gap-2.5 py-4 rounded-full bg-[#E6C47E] hover:bg-white text-black font-extrabold text-sm uppercase tracking-widest transition-all pointer-events-auto shadow-lg cursor-pointer"
                 >
                   <Send className="w-4 h-4 rotate-45" />
                   <span>{t.contact.findUsTitle}</span>

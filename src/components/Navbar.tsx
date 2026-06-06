@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Menu, X, Phone, Globe, ChevronRight } from "lucide-react";
+import { Fragment, useState, useEffect, type MouseEvent } from "react";
+import { Menu, X, Phone, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { getWhatsappUrl } from "../data/business";
 import { translations } from "../data/translations";
+import { scrollToSection } from "../utils/scroll";
 
 interface NavbarProps {
   language: "ar" | "fr";
@@ -35,22 +37,10 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
     { name: t.nav.contact, href: "#contact" },
   ];
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setIsOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      const offset = 80; // height of dynamic navbar
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
+    scrollToSection(href);
   };
 
   return (
@@ -68,7 +58,7 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
             <a
               href="#home"
               onClick={(e) => handleNavClick(e, "#home")}
-              className="flex items-center gap-2 group focus:outline-none"
+              className="flex items-center gap-2 group"
             >
               {/* Visual symbol - sleek premium gold wheat brand ring */}
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-gold-accent/20 to-gold-accent/5 flex items-center justify-center border border-gold-accent/30 group-hover:scale-105 transition-transform duration-300">
@@ -98,16 +88,16 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
             {/* Desktop Navigation - Centered dot list perfectly organized */}
             <nav className="hidden lg:flex items-center gap-1.5 px-6 py-2 rounded-full border border-gold-accent/10 bg-white/5 backdrop-blur-sm shadow-inner">
               {navItems.map((item, idx) => (
-                <React.Fragment key={item.href}>
+                <Fragment key={item.href}>
                   {idx > 0 && <span className="text-[10px] text-gold-accent/20 mx-1 select-none">•</span>}
                   <a
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className="text-espresso/70 hover:text-gold-accent text-[11px] font-semibold uppercase tracking-widest font-sans transition-all duration-200"
+                    className="text-espresso/70 hover:text-gold-accent text-[11px] font-semibold uppercase tracking-widest font-sans transition-all duration-200 rounded-sm"
                   >
                     {item.name}
                   </a>
-                </React.Fragment>
+                </Fragment>
               ))}
             </nav>
 
@@ -115,8 +105,9 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
             <div className="hidden lg:flex items-center gap-6">
               {/* Dynamic language link style resembling "Current Customer?" */}
               <button
+                type="button"
                 onClick={toggleLanguage}
-                className="text-chocolate-dark hover:text-gold-accent text-xs font-medium font-sans tracking-wide transition-colors cursor-pointer"
+                className="min-h-[44px] text-chocolate-dark hover:text-gold-accent text-xs font-medium font-sans tracking-wide transition-colors cursor-pointer"
               >
                 {language === "ar" ? (
                   <span>En Français? <span className="text-gold-accent">→</span></span>
@@ -126,10 +117,10 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
               </button>
 
               <a
-                href="https://wa.me/212622212159"
+                href={getWhatsappUrl()}
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center gap-2 bg-[#E6C47E] hover:bg-white text-[#000000] px-5 py-2 text-[11px] font-bold font-sans uppercase tracking-[0.16em] rounded-full transition-all shadow-md duration-300"
+                className="group flex min-h-[44px] items-center gap-2 bg-[#E6C47E] hover:bg-white text-[#000000] px-5 py-2 text-[11px] font-bold font-sans uppercase tracking-[0.16em] rounded-full transition-all shadow-md duration-300"
               >
                 <span>{t.nav.order}</span>
                 <span className="w-5 h-5 rounded-full bg-black/10 flex items-center justify-center text-black group-hover:translate-x-1.5 transition-transform duration-300">
@@ -144,16 +135,21 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
             {/* Mobile Actions: Language Toggler & Hamburger */}
             <div className="flex lg:hidden items-center gap-3">
               <button
+                type="button"
                 onClick={toggleLanguage}
-                className="flex items-center gap-1 px-2.5 py-1 border border-gold-accent/20 bg-white/5 text-[9px] font-bold text-espresso tracking-wider uppercase transition-colors"
+                className="flex min-h-[44px] min-w-[44px] items-center justify-center gap-1 px-2.5 py-1 border border-gold-accent/20 bg-white/5 text-[10px] font-bold text-espresso tracking-wider uppercase transition-colors"
                 aria-label="Toggle language"
               >
                 <span>{language === "ar" ? "FR" : "AR"}</span>
               </button>
 
               <button
+                type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-2 border border-gold-accent/20 bg-[#090909] text-espresso hover:bg-[#151515] transition-colors"
+                className="min-h-[44px] min-w-[44px] p-2 border border-gold-accent/20 bg-[#090909] text-espresso hover:bg-[#151515] transition-colors"
+                aria-label={isOpen ? "Close menu" : "Open menu"}
+                aria-expanded={isOpen}
+                aria-controls="mobile-navigation"
               >
                 {isOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
               </button>
@@ -171,9 +167,10 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
               animate={{ opacity: 0.5 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-espresso/60 z-40 lg:hidden"
+              className="fixed inset-0 bg-black/70 z-40 lg:hidden"
             />
             <motion.div
+              id="mobile-navigation"
               initial={{ x: language === "ar" ? "100%" : "-100%" }}
               animate={{ x: 0 }}
               exit={{ x: language === "ar" ? "100%" : "-100%" }}
@@ -193,8 +190,10 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
                     </span>
                   </div>
                   <button
+                    type="button"
                     onClick={() => setIsOpen(false)}
-                    className="p-1.5 border border-gold-accent/20"
+                    className="min-h-[44px] min-w-[44px] p-1.5 border border-gold-accent/20 flex items-center justify-center"
+                    aria-label={language === "ar" ? "إغلاق القائمة" : "Fermer le menu"}
                   >
                     <X className="w-4 h-4 text-espresso" />
                   </button>
@@ -206,7 +205,7 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
                       key={item.href}
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item.href)}
-                      className="flex items-center justify-between py-3 px-4 text-espresso hover:text-gold-accent hover:bg-gold-accent/5 font-semibold text-xs tracking-widest uppercase transition-all"
+                      className="flex min-h-[44px] items-center justify-between py-3 px-4 text-espresso hover:text-gold-accent hover:bg-gold-accent/5 font-semibold text-xs tracking-widest uppercase transition-all"
                     >
                       <span>{item.name}</span>
                       <ChevronRight className={`w-3.5 h-3.5 text-gold-accent/40 ${language === "ar" ? "rotate-180" : ""}`} />
@@ -223,10 +222,10 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
                 </p>
 
                 <a
-                  href="https://wa.me/212622212159"
+                  href={getWhatsappUrl()}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-center gap-2 w-full py-3.5 bg-espresso text-gold-cream font-bold text-xs tracking-widest uppercase rounded-none hover:bg-gold-accent hover:text-espresso transition-colors"
+                  className="flex min-h-[44px] items-center justify-center gap-2 w-full py-3.5 bg-espresso text-gold-cream font-bold text-xs tracking-widest uppercase rounded-none hover:bg-gold-accent hover:text-espresso transition-colors"
                 >
                   <Phone className="w-4 h-4 text-gold-accent" />
                   <span>{t.nav.order}</span>

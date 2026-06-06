@@ -1,4 +1,3 @@
-import React from "react";
 import SectionTitle from "./SectionTitle";
 import ProductCard from "./ProductCard";
 import { bestSellers } from "../data/products";

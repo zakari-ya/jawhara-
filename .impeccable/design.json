@@ -1,0 +1,340 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-06T15:57:27+01:00",
+  "title": "Design System: Jawhara Bakery",
+  "extensions": {
+    "colorMeta": {
+      "kiln-black": {
+        "role": "neutral",
+        "displayName": "Kiln Black",
+        "canonical": "#000000",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(24% 0 0)",
+          "oklch(34% 0 0)",
+          "oklch(45% 0 0)",
+          "oklch(58% 0 0)",
+          "oklch(72% 0 0)",
+          "oklch(86% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "blackened-crust": {
+        "role": "neutral",
+        "displayName": "Blackened Crust",
+        "canonical": "#030303",
+        "tonalRamp": [
+          "oklch(16% 0.002 80)",
+          "oklch(24% 0.002 80)",
+          "oklch(34% 0.002 80)",
+          "oklch(45% 0.002 80)",
+          "oklch(58% 0.002 80)",
+          "oklch(72% 0.002 80)",
+          "oklch(86% 0.002 80)",
+          "oklch(95% 0.002 80)"
+        ]
+      },
+      "oven-charcoal": {
+        "role": "neutral",
+        "displayName": "Oven Charcoal",
+        "canonical": "#0C0C0C",
+        "tonalRamp": [
+          "oklch(17% 0.004 80)",
+          "oklch(25% 0.004 80)",
+          "oklch(35% 0.004 80)",
+          "oklch(46% 0.004 80)",
+          "oklch(59% 0.004 80)",
+          "oklch(73% 0.004 80)",
+          "oklch(87% 0.004 80)",
+          "oklch(95% 0.004 80)"
+        ]
+      },
+      "logo-black": {
+        "role": "neutral",
+        "displayName": "Logo Black",
+        "canonical": "#090909",
+        "tonalRamp": [
+          "oklch(17% 0.003 80)",
+          "oklch(25% 0.003 80)",
+          "oklch(35% 0.003 80)",
+          "oklch(46% 0.003 80)",
+          "oklch(59% 0.003 80)",
+          "oklch(73% 0.003 80)",
+          "oklch(87% 0.003 80)",
+          "oklch(95% 0.003 80)"
+        ]
+      },
+      "jawhara-gold": {
+        "role": "primary",
+        "displayName": "Jawhara Gold",
+        "canonical": "#E6C47E",
+        "tonalRamp": [
+          "oklch(24% 0.055 82)",
+          "oklch(34% 0.07 82)",
+          "oklch(45% 0.085 82)",
+          "oklch(58% 0.095 82)",
+          "oklch(70% 0.1 82)",
+          "oklch(79% 0.085 82)",
+          "oklch(88% 0.055 82)",
+          "oklch(95% 0.028 82)"
+        ]
+      },
+      "fresh-cream": {
+        "role": "secondary",
+        "displayName": "Fresh Cream",
+        "canonical": "#FAF7F2",
+        "tonalRamp": [
+          "oklch(22% 0.01 80)",
+          "oklch(34% 0.012 80)",
+          "oklch(46% 0.012 80)",
+          "oklch(58% 0.012 80)",
+          "oklch(70% 0.012 80)",
+          "oklch(82% 0.01 80)",
+          "oklch(91% 0.008 80)",
+          "oklch(98% 0.006 80)"
+        ]
+      },
+      "stone-date": {
+        "role": "neutral",
+        "displayName": "Stone Date",
+        "canonical": "#A19A93",
+        "tonalRamp": [
+          "oklch(22% 0.012 70)",
+          "oklch(32% 0.014 70)",
+          "oklch(42% 0.016 70)",
+          "oklch(53% 0.018 70)",
+          "oklch(64% 0.018 70)",
+          "oklch(76% 0.014 70)",
+          "oklch(87% 0.01 70)",
+          "oklch(95% 0.006 70)"
+        ]
+      },
+      "dim-border": {
+        "role": "neutral",
+        "displayName": "Dim Border",
+        "canonical": "#2A241A",
+        "tonalRamp": [
+          "oklch(18% 0.016 82)",
+          "oklch(26% 0.02 82)",
+          "oklch(35% 0.024 82)",
+          "oklch(46% 0.024 82)",
+          "oklch(58% 0.022 82)",
+          "oklch(71% 0.018 82)",
+          "oklch(84% 0.012 82)",
+          "oklch(94% 0.008 82)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headlines only. It carries bakery pride and must stay below a 6rem maximum."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles and major page landmarks."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card headings, product names, review names, and contact labels."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Long bilingual prose, product descriptions, story copy, and legal text."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Short CTAs, navigation, filters, badges, prices, and metrics."
+      }
+    },
+    "shadows": [
+      {
+        "name": "text-legibility-shadow",
+        "value": "0 4px 20px rgba(0, 0, 0, 0.9)",
+        "purpose": "Hero or image-overlaid text only."
+      },
+      {
+        "name": "gold-text-glow",
+        "value": "0 0 10px rgba(230, 196, 126, 0.35)",
+        "purpose": "Rare warm glint on gold highlights."
+      },
+      {
+        "name": "panel-depth",
+        "value": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+        "purpose": "Large cards and contact panels against near-black backgrounds."
+      },
+      {
+        "name": "cta-lift",
+        "value": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)",
+        "purpose": "Gold action buttons only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state-transition",
+        "value": "300ms ease-out",
+        "purpose": "Button, border, color, and small transform changes."
+      },
+      {
+        "name": "entry-reveal",
+        "value": "600ms to 900ms ease-out",
+        "purpose": "Section-level opacity and translate reveals through Motion."
+      },
+      {
+        "name": "hero-parallax",
+        "value": "scroll progress * 120px",
+        "purpose": "Subtle background image movement in the hero."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Gold pill action for WhatsApp, map, and order conversion.",
+      "html": "<button class=\"ds-btn-primary\">ORDER ON WHATSAPP</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; padding: 14px 32px; border: 1px solid var(--color-gold-accent, #E6C47E); border-radius: 999px; background: var(--color-gold-accent, #E6C47E); color: #000000; font-family: var(--font-sans, Plus Jakarta Sans, Inter, system-ui, sans-serif); font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); transition: background 300ms ease, border-color 300ms ease, transform 300ms ease; } .ds-btn-primary:hover { background: #ffffff; border-color: #ffffff; } .ds-btn-primary:active { transform: scale(0.95); } .ds-btn-primary:focus-visible { outline: 2px solid #FAF7F2; outline-offset: 3px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Outlined dark pill for secondary section actions.",
+      "html": "<button class=\"ds-btn-secondary\">VIEW OUR MENU</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; padding: 14px 32px; border: 1px solid rgba(230, 196, 126, 0.3); border-radius: 999px; background: transparent; color: var(--color-gold-accent, #E6C47E); font-family: var(--font-sans, Plus Jakarta Sans, Inter, system-ui, sans-serif); font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; transition: background 300ms ease, border-color 300ms ease, color 300ms ease, transform 300ms ease; } .ds-btn-secondary:hover { border-color: var(--color-gold-accent, #E6C47E); background: rgba(255, 255, 255, 0.06); color: #ffffff; } .ds-btn-secondary:active { transform: scale(0.95); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--color-gold-accent, #E6C47E); outline-offset: 3px; }"
+    },
+    {
+      "name": "Gallery Filter Chip",
+      "kind": "chip",
+      "refersTo": "badge-gold",
+      "description": "Pill filter with clear selected and unselected states.",
+      "html": "<button class=\"ds-chip ds-chip-selected\">SWEETS</button><button class=\"ds-chip\">BREAD</button>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; justify-content: center; margin: 4px; padding: 8px 24px; border: 1px solid rgba(230, 196, 126, 0.15); border-radius: 999px; background: #000000; color: #FAF7F2; font-family: var(--font-sans, Plus Jakarta Sans, Inter, system-ui, sans-serif); font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; transition: background 300ms ease, border-color 300ms ease, color 300ms ease; } .ds-chip:hover { border-color: var(--color-gold-accent, #E6C47E); background: rgba(255, 255, 255, 0.05); } .ds-chip-selected { border-color: var(--color-gold-accent, #E6C47E); background: var(--color-gold-accent, #E6C47E); color: #000000; } .ds-chip:focus-visible { outline: 2px solid var(--color-gold-accent, #E6C47E); outline-offset: 3px; }"
+    },
+    {
+      "name": "Product Card",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Dark display-tray card for product image, price, description, and order action.",
+      "html": "<article class=\"ds-product-card\"><div class=\"ds-product-image\"><span class=\"ds-product-price\"><small>FROM</small>18 DH</span><span class=\"ds-product-badge\">PRESTIGE</span></div><h3>Moroccan Sweets</h3><p>Fresh daily sweets with selected ingredients and a refined finish.</p><button>ORDER</button></article>",
+      "css": ".ds-product-card { width: min(100%, 340px); padding: 16px; border: 1px solid rgba(230, 196, 126, 0.1); border-radius: 0; background: rgba(12, 12, 12, 0.9); color: #FAF7F2; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); font-family: var(--font-sans, Plus Jakarta Sans, Inter, system-ui, sans-serif); transition: border-color 300ms ease; } .ds-product-card:hover { border-color: rgba(230, 196, 126, 0.3); } .ds-product-image { position: relative; aspect-ratio: 4 / 3; margin-bottom: 16px; overflow: hidden; background: linear-gradient(135deg, #1d1d1d, #050505); } .ds-product-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); } .ds-product-price { position: absolute; right: 12px; bottom: 12px; z-index: 1; padding: 6px 12px; border: 1px solid rgba(230, 196, 126, 0.2); background: #000000; color: #FAF7F2; font-size: 12px; font-weight: 700; } .ds-product-price small { display: block; color: var(--color-gold-accent, #E6C47E); font-size: 9px; letter-spacing: 0.12em; } .ds-product-badge { position: absolute; left: 12px; top: 12px; z-index: 1; padding: 4px 10px; background: var(--color-gold-accent, #E6C47E); color: #000000; font-size: 9px; font-weight: 800; letter-spacing: 0.14em; } .ds-product-card h3 { margin: 0 0 8px; font-family: var(--font-serif, Playfair Display, Amiri, serif); font-size: 18px; line-height: 1.25; } .ds-product-card p { margin: 0 0 24px; color: var(--color-chocolate-dark, #A19A93); font-size: 12px; line-height: 1.7; } .ds-product-card button { width: 100%; padding: 12px 16px; border: 1px solid rgba(230, 196, 126, 0.3); border-radius: 999px; background: transparent; color: var(--color-gold-accent, #E6C47E); font-size: 10px; font-weight: 800; letter-spacing: 0.14em; cursor: pointer; } .ds-product-card button:hover { background: var(--color-gold-accent, #E6C47E); color: #000000; }"
+    },
+    {
+      "name": "Section Title",
+      "kind": "custom",
+      "refersTo": "badge-gold",
+      "description": "Centered title block with a small gold badge and zellige-style divider.",
+      "html": "<header class=\"ds-section-title\"><span>CLIENT TRUST</span><h2>Fresh from Jawhara</h2><div></div><p>Short bilingual support copy that explains the section without repeating the title.</p></header>",
+      "css": ".ds-section-title { text-align: center; color: #FAF7F2; max-width: 720px; margin: 0 auto 64px; font-family: var(--font-sans, Plus Jakarta Sans, Inter, system-ui, sans-serif); } .ds-section-title span { display: inline-block; margin-bottom: 12px; padding: 4px 12px; border: 1px solid var(--color-gold-accent, #E6C47E); color: var(--color-gold-accent, #E6C47E); font-size: 9px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; } .ds-section-title h2 { margin: 0; color: #FAF7F2; font-family: var(--font-serif, Playfair Display, Amiri, serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.12; letter-spacing: -0.02em; } .ds-section-title div { width: 160px; height: 1px; margin: 20px auto; background: linear-gradient(90deg, transparent, rgba(230, 196, 126, 0.5), transparent); } .ds-section-title p { margin: 0 auto; max-width: 65ch; color: var(--color-chocolate-dark, #A19A93); font-size: 15px; line-height: 1.7; }"
+    },
+    {
+      "name": "Review Card",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Trust card with reviewer initials, honest rating, date, and restrained quote styling.",
+      "html": "<article class=\"ds-review-card\"><header><span class=\"ds-avatar\">A</span><div><h3>Amina</h3><small>Recent review</small></div><div class=\"ds-stars\">★★★★☆</div></header><p>Fresh sweets, careful service, and a clean local bakery experience.</p></article>",
+      "css": ".ds-review-card { width: min(100%, 520px); padding: 24px; border: 1px solid rgba(230, 196, 126, 0.1); border-radius: 0; background: rgba(12, 12, 12, 0.8); color: #FAF7F2; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); font-family: var(--font-sans, Plus Jakarta Sans, Inter, system-ui, sans-serif); transition: border-color 300ms ease; } .ds-review-card:hover { border-color: rgba(230, 196, 126, 0.35); } .ds-review-card header { display: flex; align-items: center; gap: 12px; padding-bottom: 12px; margin-bottom: 16px; border-bottom: 1px solid rgba(230, 196, 126, 0.1); } .ds-avatar { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(230, 196, 126, 0.15); background: #0a0a0a; color: var(--color-gold-accent, #E6C47E); font-weight: 900; } .ds-review-card h3 { margin: 0; font-family: var(--font-serif, Playfair Display, Amiri, serif); font-size: 16px; line-height: 1.2; } .ds-review-card small { color: var(--color-chocolate-dark, #A19A93); font-size: 10px; } .ds-stars { margin-left: auto; color: var(--color-gold-accent, #E6C47E); letter-spacing: 2px; } .ds-review-card p { margin: 0; color: var(--color-chocolate-dark, #A19A93); font-family: var(--font-serif, Playfair Display, Amiri, serif); font-size: 14px; font-style: italic; line-height: 1.7; }"
+    },
+    {
+      "name": "Contact Detail Row",
+      "kind": "custom",
+      "refersTo": "panel",
+      "description": "Icon-led business detail row for address, phone, and hours.",
+      "html": "<div class=\"ds-contact-row\"><span class=\"ds-contact-icon\">☎</span><div><h3>Phone and WhatsApp</h3><strong>0622212159</strong><p>Contact directly for orders and custom cakes.</p></div></div>",
+      "css": ".ds-contact-row { display: flex; align-items: flex-start; gap: 16px; padding-bottom: 16px; border-bottom: 1px solid rgba(230, 196, 126, 0.1); color: #FAF7F2; font-family: var(--font-sans, Plus Jakarta Sans, Inter, system-ui, sans-serif); } .ds-contact-icon { width: 44px; height: 44px; flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(230, 196, 126, 0.15); border-radius: 999px; background: rgba(230, 196, 126, 0.05); color: var(--color-gold-accent, #E6C47E); } .ds-contact-row h3 { margin: 0 0 4px; font-family: var(--font-serif, Playfair Display, Amiri, serif); font-size: 18px; line-height: 1.25; } .ds-contact-row strong { display: block; margin-bottom: 8px; color: var(--color-gold-accent, #E6C47E); font-size: 18px; letter-spacing: -0.01em; } .ds-contact-row p { margin: 0; color: var(--color-chocolate-dark, #A19A93); font-size: 13px; line-height: 1.6; }"
+    },
+    {
+      "name": "Navigation Pill",
+      "kind": "nav",
+      "refersTo": "panel",
+      "description": "Compact translucent desktop navigation track with gold separators.",
+      "html": "<nav class=\"ds-nav-pill\"><a>HOME</a><span>•</span><a>PRODUCTS</a><span>•</span><a>CONTACT</a></nav>",
+      "css": ".ds-nav-pill { display: inline-flex; align-items: center; gap: 10px; padding: 8px 24px; border: 1px solid rgba(230, 196, 126, 0.1); border-radius: 999px; background: rgba(255, 255, 255, 0.05); color: rgba(250, 247, 242, 0.7); font-family: var(--font-sans, Plus Jakarta Sans, Inter, system-ui, sans-serif); box-shadow: inset 0 2px 4px rgba(0,0,0,0.05); } .ds-nav-pill a { color: inherit; text-decoration: none; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; transition: color 200ms ease; } .ds-nav-pill a:hover, .ds-nav-pill a:focus-visible { color: var(--color-gold-accent, #E6C47E); outline: none; } .ds-nav-pill span { color: rgba(230, 196, 126, 0.2); font-size: 10px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Chichaoua Gold Counter",
+    "overview": "Jawhara's visual system should feel like standing at a dark bakery counter while warm display-case light catches fresh bread, Moroccan sweets, and celebration cakes. The page is image-led, high-contrast, and deliberately local: the food carries appetite, the gold carries trust, and the black surfaces keep the experience premium without becoming theatrical.\n\nThe system is sharp and restrained. Panels are mostly rectangular, borders are thin, glow is rare, and gold is used as a small signal rather than a wash over the whole page. Arabic is the primary reading mode, so generous line height, clear hierarchy, and native RTL rhythm matter as much as visual atmosphere.\n\nThe system rejects the PRODUCT.md anti-references directly: no generic AI-generated landing page, no luxury template disconnected from a real local bakery, no inflated ecommerce brand, no vague hype, no fake urgency, no unsupported \"best in town\" language, no fake review wording, no placeholder business details, no checkout, no payments, no accounts, no analytics dashboards, and no CMS-shaped UI.",
+    "keyCharacteristics": [
+      "Full-bleed food imagery with black gradient overlays for legibility.",
+      "Near-black page sections with thin gold dividers and borders.",
+      "Gold accents reserved for CTAs, trust marks, prices, stars, icons, and section ornaments.",
+      "Sharp card geometry, pill action buttons, and small uppercase labels.",
+      "Subtle motion that supports appetite, scanning, and confidence."
+    ],
+    "rules": [
+      {
+        "name": "The Gold Ration Rule",
+        "body": "Jawhara Gold must stay rare. On a normal section it should occupy less than 10% of the visible surface, so the CTA and trust marks keep their value.",
+        "section": "colors"
+      },
+      {
+        "name": "The Black Is Black Rule",
+        "body": "Backgrounds must stay near black. Do not drift into navy, purple, brown, espresso, beige, or a one-note tan bakery palette.",
+        "section": "colors"
+      },
+      {
+        "name": "The Food Before Ornament Rule",
+        "body": "If a section has a strong product image, the image wins. Gold patterns, lines, and glows must stay secondary.",
+        "section": "colors"
+      },
+      {
+        "name": "The Arabic First Rule",
+        "body": "Every type decision must work in RTL before it is considered finished. Avoid cramped tracking, oversized hero lines, and narrow containers that make Arabic feel forced into a French layout.",
+        "section": "typography"
+      },
+      {
+        "name": "The Short Caps Rule",
+        "body": "Uppercase tracking is allowed only for short labels, never sentence-length body copy.",
+        "section": "typography"
+      },
+      {
+        "name": "The Rectangular Counter Rule",
+        "body": "Cards and panels are square-edged by default. Use pill radius for actions and small circular icon wells only.",
+        "section": "elevation"
+      },
+      {
+        "name": "The No Ghost Card Rule",
+        "body": "Do not combine decorative 1px borders with wide bright shadows. Use dark ambient depth, thin gold borders, or hover border changes.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep Jawhara Gold rare and concentrated on CTAs, stars, price labels, icons, and active states.",
+      "**Do** preserve the dark/gold bakery direction with real food imagery and high-contrast copy.",
+      "**Do** keep Arabic RTL as the primary experience and verify every layout in Arabic before French.",
+      "**Do** use honest review numbers and real business links in every trust or contact surface.",
+      "**Do** keep cards square-edged and use pill shapes only for action buttons, filters, and icon wells.",
+      "**Do** make every major section lead naturally to WhatsApp, phone, Facebook, Google Maps, products, or contact."
+    ],
+    "donts": [
+      "**Don't** make the site feel like a generic AI-generated landing page.",
+      "**Don't** make it a luxury template disconnected from a real local bakery.",
+      "**Don't** make it an inflated ecommerce brand with checkout, payment, accounts, analytics dashboards, or CMS-shaped UI.",
+      "**Don't** use vague hype, fake urgency, unsupported \"best in town\" language, fake review wording, or placeholder business details.",
+      "**Don't** hide food behind decorative clutter, oversized ornaments, glass effects, or abstract blocks.",
+      "**Don't** add repeated tiny uppercase section eyebrows everywhere. A badge is acceptable only when it clarifies the section.",
+      "**Don't** use gradient text, side-stripe borders thicker than 1px, or decorative card shadows that fight the dark counter feel.",
+      "**Don't** let hero type exceed 6rem, tighten display tracking past -0.04em, or let long Arabic words overflow on mobile."
+    ]
+  }
+}

@@ -72,7 +72,7 @@ export default function SectionTitle({
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-2xl text-xs sm:text-sm md:text-base text-chocolate-dark/85 font-sans leading-relaxed px-4"
+          className="max-w-2xl text-sm md:text-base text-chocolate-dark/85 font-sans leading-relaxed px-4"
         >
           {subtitle}
         </motion.p>
