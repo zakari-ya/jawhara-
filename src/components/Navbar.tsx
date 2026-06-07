@@ -1,7 +1,7 @@
 import { Fragment, useState, useEffect, type MouseEvent } from "react";
 import { Menu, X, Phone, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { getGeneralWhatsappUrl } from "../data/business";
+import { BUSINESS, getGeneralWhatsappUrl } from "../data/business";
 import { translations } from "../data/translations";
 import { scrollToSection } from "../utils/scroll";
 
@@ -60,18 +60,18 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
               onClick={(e) => handleNavClick(e, "#home")}
               className="flex items-center gap-2 group"
             >
-              {/* Visual symbol - sleek premium gold wheat brand ring */}
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-gold-accent/20 to-gold-accent/5 flex items-center justify-center border border-gold-accent/30 group-hover:scale-105 transition-transform duration-300">
-                <svg
-                  className="w-4 h-4 text-gold-accent fill-none stroke-current"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                </svg>
+              <div className="h-11 w-11 shrink-0 overflow-hidden rounded-full border border-gold-accent/35 bg-black shadow-md transition-transform duration-300 group-hover:scale-105">
+                <img
+                  src={BUSINESS.logoUrl}
+                  alt={
+                    language === "ar"
+                      ? "شعار مخبزة جوهرة"
+                      : "Boulangerie Jawhara logo"
+                  }
+                  className="h-full w-full object-cover scale-[1.08]"
+                  width="44"
+                  height="44"
+                />
               </div>
               <div className="flex flex-col">
                 <div className="text-sm md:text-base font-black tracking-widest flex items-baseline font-sans text-espresso">

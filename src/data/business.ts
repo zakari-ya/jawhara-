@@ -3,6 +3,7 @@ export const BUSINESS = {
     ar: "مخبزة وحلويات جوهرة",
     fr: "Boulangerie & Pâtisserie Jawhara",
   },
+  logoUrl: "/logo-jawhara.png",
   phoneDisplay: "0622212159",
   whatsappNumber: "212622212159",
   mapDisplay: {

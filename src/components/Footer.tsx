@@ -25,8 +25,18 @@ export default function Footer({ language, onOpenLegal }: FooterProps) {
           {/* Column 1: Brand Info & Slogan */}
           <div className="md:col-span-6 space-y-4">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-[#E6C47E] flex items-center justify-center border border-white/5 shadow-md">
-                <span className="text-black font-extrabold text-xs font-sans">J</span>
+              <div className="h-10 w-10 overflow-hidden rounded-full border border-gold-accent/35 bg-black shadow-md">
+                <img
+                  src={BUSINESS.logoUrl}
+                  alt={
+                    language === "ar"
+                      ? "شعار مخبزة جوهرة"
+                      : "Boulangerie Jawhara logo"
+                  }
+                  className="h-full w-full object-cover scale-[1.08]"
+                  width="40"
+                  height="40"
+                />
               </div>
               <span className="font-bold text-lg text-[#FAF7F2] tracking-tight font-serif">
                 {BUSINESS.brand[language]}

@@ -23,15 +23,18 @@ export default function CtaSection({ language }: CtaSectionProps) {
           transition={{ duration: 0.7 }}
           className="p-8 sm:p-12 md:p-16 rounded-none border border-gold-accent/15 bg-[#0C0C0C]/90 backdrop-blur-md shadow-2xl flex flex-col items-center"
         >
-          {/* Logo stamp symbol icon */}
-          <div className="w-10 h-10 rounded-full bg-[#E6C47E]/5 flex items-center justify-center border border-gold-accent/20 text-[#E6C47E] mb-6 rotate-12">
-            <svg
-              className="w-5 h-5 fill-current"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9" />
-            </svg>
+          <div className="mb-6 h-14 w-14 overflow-hidden rounded-full border border-gold-accent/35 bg-black shadow-md">
+            <img
+              src={BUSINESS.logoUrl}
+              alt={
+                language === "ar"
+                  ? "شعار مخبزة جوهرة"
+                  : "Boulangerie Jawhara logo"
+              }
+              className="h-full w-full object-cover scale-[1.08]"
+              width="56"
+              height="56"
+            />
           </div>
 
           <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#FAF7F2] mb-4 tracking-tight font-serif leading-snug">
